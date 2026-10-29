@@ -1,0 +1,30 @@
+# XcodeGen spec. Run `xcodegen` in this folder to create PrankPay.xcodeproj.
+name: PrankPay
+options:
+  bundleIdPrefix: com.example      # change to your own, e.g. com.yourname
+  deploymentTarget:
+    iOS: "16.0"
+targets:
+  PrankPay:
+    type: application
+    platform: iOS
+    sources:
+      - path: PrankPay
+        excludes: ["web"]
+      - path: PrankPay/web
+        type: folder               # copied into the app as a "web" folder
+    info:
+      path: PrankPay/Info.plist
+      properties:
+        CFBundleDisplayName: PrankPay
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        UISupportedInterfaceOrientations~ipad: [UIInterfaceOrientationPortrait]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.prankpay
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        SWIFT_VERSION: "5.0"
+        TARGETED_DEVICE_FAMILY: "1"
